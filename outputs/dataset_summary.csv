@@ -1,0 +1,18 @@
+metric,value
+train_samples,2995
+test_samples,998
+total_features_train,15
+total_features_test,3
+text_column,Text
+id_column,Unique ID
+label_columns,12
+label_format,multi-column
+unique_labels,27
+avg_doc_length_tokens,489.13
+median_doc_length_tokens,213
+min_doc_length_tokens,2
+max_doc_length_tokens,3961
+avg_char_count,3409.48
+vocabulary_size,30086
+missing_values_train,30022
+missing_values_test,0
