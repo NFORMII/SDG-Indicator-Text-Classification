@@ -1,0 +1,12 @@
+Experiment,Hamming Loss,Micro F1,Macro F1,Subset Accuracy
+Exp 4: LinearSVC,0.045,0.6156,0.5149,0.3823
+Exp 5: LR + Optimized Thresholds,0.0506,0.6592,0.5407,0.3306
+Exp 4: Random Forest,0.0507,0.5066,0.3532,0.2838
+Exp 6B: LR + balanced + opt thresholds,0.0514,0.6672,0.6251,0.3356
+Exp 1: LR + TF-IDF Unigrams (Baseline),0.0543,0.4398,0.268,0.2554
+"Exp 3: LR + vocab=5,000",0.0547,0.4297,0.2385,
+Exp 4: LR (best config),0.0547,0.4297,0.2385,0.2638
+Exp 2: LR + TF-IDF Bigrams,0.0555,0.4164,0.2311,0.2454
+Exp 2: LR + TF-IDF Bigrams,0.0555,0.4164,0.2311,0.2454
+Exp 2: LR + TF-IDF Bigrams,0.0555,0.4164,0.2311,0.2454
+Exp 6A: LR + class_weight=balanced,0.0623,0.6221,0.5684,0.2721
