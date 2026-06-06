@@ -44,12 +44,12 @@ cell2 = nbformat.v4.new_code_cell(
 cell3 = nbformat.v4.new_code_cell(
     "# Download GloVe vectors (needed for Experiment 11)\n"
     "# ~820MB — only downloads if not already present\n"
-    "import os\n"
+    "import os, subprocess\n"
     "if not os.path.exists('glove.6B.300d.txt'):\n"
-    "    print('Downloading GloVe 6B vectors...')\n"
-    "    os.system('wget -q https://nlp.stanford.edu/data/glove.6B.zip')\n"
-    "    os.system('unzip -q glove.6B.zip glove.6B.300d.txt')\n"
-    "    os.system('rm glove.6B.zip')\n"
+    "    print('Downloading GloVe 6B vectors (~820MB)...')\n"
+    "    subprocess.run(['wget', '-q', 'https://nlp.stanford.edu/data/glove.6B.zip'], check=True)\n"
+    "    subprocess.run(['unzip', '-q', 'glove.6B.zip', 'glove.6B.300d.txt'], check=True)\n"
+    "    os.remove('glove.6B.zip')\n"
     "    print('GloVe ready.')\n"
     "else:\n"
     "    print('GloVe vectors already present.')\n"
@@ -95,8 +95,13 @@ cell6 = nbformat.v4.new_code_cell(
     "    return max(obj_cols, key=lambda c: df[c].dropna().astype(str).str.len().mean())\n"
     "\n"
     "def detect_id_col(df):\n"
+    "    # prefer columns whose name suggests an ID\n"
     "    for c in df.columns:\n"
-    "        if df[c].nunique() == len(df):\n"
+    "        if any(kw in c.lower() for kw in ('id', 'key', 'uid', 'uuid')):\n"
+    "            return c\n"
+    "    # fallback: first column with all-unique values that isn't object type\n"
+    "    for c in df.columns:\n"
+    "        if df[c].dtype != object and df[c].nunique() == len(df):\n"
     "            return c\n"
     "    return df.columns[0]\n"
     "\n"
@@ -198,6 +203,7 @@ cell10 = nbformat.v4.new_code_cell(
     "from nltk.stem import WordNetLemmatizer\n"
     "\n"
     "DOMAIN_ACRONYMS = {'sdg', 'who', 'hiv', 'tb', 'usaid', 'ngo', 'oda', 'oecd', 'wash', 'ncds'}\n"
+    "DOMAIN_ACRONYMS_UPPER = {a.upper() for a in DOMAIN_ACRONYMS}\n"
     "STOP_WORDS = set(stopwords.words('english'))\n"
     "lemmatizer = WordNetLemmatizer()\n"
     r"tokenizer  = RegexpTokenizer(r'\b[a-zA-Z]+\b')"
@@ -217,7 +223,7 @@ cell10 = nbformat.v4.new_code_cell(
     "    tokens = tokenizer.tokenize(text)\n"
     "    cleaned = []\n"
     "    for tok in tokens:\n"
-    "        if tok.upper() in {a.upper() for a in DOMAIN_ACRONYMS}:\n"
+    "        if tok.upper() in DOMAIN_ACRONYMS_UPPER:\n"
     "            cleaned.append(tok.upper())\n"
     "            continue\n"
     "        if tok in STOP_WORDS: continue\n"
@@ -253,7 +259,8 @@ nb.metadata = {
     "language_info": {
         "name": "python",
         "version": "3.10.0"
-    }
+    },
+    "colab": {"provenance": []}
 }
 
 output_path = "SDG3_Classification_Complete.ipynb"
