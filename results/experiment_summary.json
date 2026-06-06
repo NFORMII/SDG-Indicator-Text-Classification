@@ -1,0 +1,57 @@
+{
+  "baseline_hamming_loss": 0.045,
+  "best_model": {
+    "name": "Word2Vec + DeepNN (Tuned)",
+    "experiment_id": "9",
+    "hamming_loss": 0.05954368391764051,
+    "f1_micro": 0.8036697247706422,
+    "f1_macro": 0.18181584346210056
+  },
+  "all_experiments": [
+    {
+      "Experiment": "7",
+      "Name": "Word2Vec + DeepNN",
+      "Embedding": "Word2Vec",
+      "Hamming Loss": 0.06288258208124652,
+      "HL (Optimal)": 0.06413466889259878,
+      "F1 Micro": 0.8005295675198588,
+      "F1 Micro (Optimal)": 0.807996668054977,
+      "F1 Macro": 0.2066304793308995,
+      "Optimal Threshold": 0.40000000000000013
+    },
+    {
+      "Experiment": "8",
+      "Name": "BERT",
+      "Embedding": "BERT",
+      "Hamming Loss": 0.07220367278797997,
+      "HL (Optimal)": 0.07220367278797997,
+      "F1 Micro": 0.7809202195018995,
+      "F1 Micro (Optimal)": 0.7809202195018995,
+      "F1 Macro": 0.14207207207207206,
+      "Optimal Threshold": 0.30000000000000004
+    },
+    {
+      "Experiment": "9",
+      "Name": "Word2Vec + DeepNN (Tuned)",
+      "Embedding": "Word2Vec (tuned)",
+      "Hamming Loss": 0.05954368391764051,
+      "HL (Optimal)": 0.05954368391764051,
+      "F1 Micro": 0.8036697247706422,
+      "F1 Micro (Optimal)": 0.8036697247706422,
+      "F1 Macro": 0.18181584346210056,
+      "Optimal Threshold": "N/A"
+    },
+    {
+      "Experiment": "10",
+      "Name": "Word2Vec + DeepNN + Class Weights",
+      "Embedding": "Word2Vec + Class Weights",
+      "Hamming Loss": 0.11588759042849194,
+      "HL (Optimal)": 0.09849749582637729,
+      "F1 Micro": 0.5914664051005395,
+      "F1 Micro (Optimal)": 0.7293577981651376,
+      "F1 Macro": 0.1264478974210895,
+      "Optimal Threshold": 0.3500000000000001
+    }
+  ],
+  "beats_baseline": false
+}
