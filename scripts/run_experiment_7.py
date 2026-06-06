@@ -1,5 +1,5 @@
 """
-Run Experiment 5: Word2Vec + Deep Neural Network
+Run Experiment 7: Word2Vec + Deep Neural Network
 """
 
 import sys
