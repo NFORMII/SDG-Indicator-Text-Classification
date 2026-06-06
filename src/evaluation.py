@@ -128,6 +128,57 @@ class MultiLabelEvaluator:
         plt.savefig('results/confusion_matrices.png', dpi=150, bbox_inches='tight')
         plt.show()
     
+    def save_confusion_matrices(self, y_true, y_pred, threshold, exp_num, save_dir='results/confusion_matrices'):
+        """
+        Save confusion matrix grid for a given experiment to a PNG file.
+
+        Args:
+            y_true: True binary label matrix (n_samples, n_labels)
+            y_pred: Predicted probabilities (n_samples, n_labels)
+            threshold: Decision threshold for binarisation
+            exp_num: Experiment number (used in filename and title)
+            save_dir: Directory to save the PNG
+        """
+        import os
+        os.makedirs(save_dir, exist_ok=True)
+
+        y_pred_binary = (y_pred >= threshold).astype(int)
+        conf_matrices = multilabel_confusion_matrix(y_true, y_pred_binary)
+
+        n_labels = len(conf_matrices)
+        n_cols = 5
+        n_rows = (n_labels + n_cols - 1) // n_cols
+
+        fig, axes = plt.subplots(n_rows, n_cols, figsize=(n_cols * 3, n_rows * 3))
+        axes = axes.flatten()
+
+        short_names = self.label_names if self.label_names else [f'L{i}' for i in range(n_labels)]
+
+        for i in range(n_labels):
+            cm = conf_matrices[i]
+            sns.heatmap(
+                cm, annot=True, fmt='d', cmap='Blues',
+                ax=axes[i], cbar=False,
+                xticklabels=['Pred 0', 'Pred 1'],
+                yticklabels=['True 0', 'True 1']
+            )
+            label_text = short_names[i]
+            if len(label_text) > 20:
+                label_text = label_text[:18] + '…'
+            axes[i].set_title(label_text, fontsize=7)
+            axes[i].tick_params(labelsize=6)
+
+        for j in range(n_labels, len(axes)):
+            axes[j].axis('off')
+
+        fig.suptitle(f'Experiment {exp_num} — Confusion Matrices (threshold={threshold:.2f})', fontsize=11)
+        plt.tight_layout()
+
+        out_path = os.path.join(save_dir, f'exp_{exp_num}.png')
+        plt.savefig(out_path, dpi=120, bbox_inches='tight')
+        plt.close(fig)
+        print(f'Confusion matrices saved → {out_path}')
+
     def plot_learning_curves(self):
         """Plot training and validation learning curves."""
         fig, axes = plt.subplots(1, 2, figsize=(12, 4))

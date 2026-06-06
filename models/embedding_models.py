@@ -324,7 +324,7 @@ class FastTextEmbedding:
             vector_size=self.vector_size,
             window=self.window,
             min_count=self.min_count,
-            workers=workers
+            workers=self.workers
         )
         print(f"Vocabulary size: {len(self.model.wv)}")
     
