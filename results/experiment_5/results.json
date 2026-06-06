@@ -1,5 +1,5 @@
 {
-  "experiment_id": 5,
+  "experiment_id": 7,
   "experiment_name": "Word2Vec + Deep Neural Network",
   "model_config": {
     "embedding": "Word2Vec",
