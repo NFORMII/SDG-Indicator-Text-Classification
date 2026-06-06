@@ -4,7 +4,7 @@ Multi-label text classification of health-related texts into 27 SDG Goal 3 indic
 
 ## Quick Start (Google Colab)
 
-1. Clone the repository: `git clone <repo-url>`
+1. Clone the repository: `git clone [<repo-url>](https://github.com/NFORMII/SDG-Indicator-Text-Classification.git)`
 2. Open `SDG3_Classification_Complete.ipynb` in Google Colab
 3. Run Section 0 (installs dependencies, downloads GloVe vectors)
 4. Runtime → Run All
@@ -76,7 +76,7 @@ SDG-Indicator-Text-Classification/
 ## Setup (Local)
 
 ```bash
-git clone <repo-url>
+git clone [<repo-url>](https://github.com/NFORMII/SDG-Indicator-Text-Classification.git)
 cd SDG-Indicator-Text-Classification
 pip install -r requirements.txt
 # Download GloVe vectors (required for Exp 11):
