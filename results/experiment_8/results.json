@@ -1,0 +1,48 @@
+{
+  "experiment_id": 10,
+  "experiment_name": "Class Imbalance Handling (Class Weights)",
+  "model_config": {
+    "embedding": "Word2Vec",
+    "vector_size": 200,
+    "window": 5,
+    "sg": 1,
+    "hidden_dims": [
+      512,
+      256,
+      128,
+      64
+    ],
+    "dropout": 0.2,
+    "use_batch_norm": true,
+    "class_weights": [
+      2.5041724470646503e-09,
+      4.5836494889896295e-09,
+      1.0084028866532852e-08,
+      2.3999988646684346e-08,
+      5.4054028212766184e-08,
+      1.1764700133380536e-07,
+      3.157893089411456e-07,
+      5.999996585671417e-07,
+      1.4999989214180383e-06,
+      2.999997092836991e-06,
+      5.9999971856710745,
+      5.9999971856710745
+    ]
+  },
+  "training_config": {
+    "learning_rate": 0.001,
+    "batch_size": 64,
+    "num_epochs": 30,
+    "optimizer": "Adam"
+  },
+  "results": {
+    "hamming_loss": 0.11588759042849194,
+    "hamming_loss_optimal": 0.09849749582637729,
+    "f1_micro": 0.5914664051005395,
+    "f1_micro_optimal": 0.7293577981651376,
+    "f1_macro": 0.1264478974210895,
+    "precision_micro": 0.6947004608294931,
+    "recall_micro": 0.5149444918872759,
+    "optimal_threshold": 0.3500000000000001
+  }
+}

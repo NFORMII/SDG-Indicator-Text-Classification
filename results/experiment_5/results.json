@@ -1,0 +1,33 @@
+{
+  "experiment_id": 7,
+  "experiment_name": "Word2Vec + Deep Neural Network",
+  "model_config": {
+    "embedding": "Word2Vec",
+    "vector_size": 300,
+    "window": 5,
+    "sg": 1,
+    "hidden_dims": [
+      512,
+      256,
+      128
+    ],
+    "dropout": 0.3,
+    "use_batch_norm": true
+  },
+  "training_config": {
+    "learning_rate": 0.001,
+    "batch_size": 64,
+    "num_epochs": 30,
+    "optimizer": "Adam"
+  },
+  "results": {
+    "hamming_loss": 0.06288258208124652,
+    "hamming_loss_optimal": 0.06413466889259878,
+    "f1_micro": 0.8005295675198588,
+    "f1_micro_optimal": 0.807996668054977,
+    "f1_macro": 0.2066304793308995,
+    "precision_micro": 0.828310502283105,
+    "recall_micro": 0.7745516652433817,
+    "optimal_threshold": 0.40000000000000013
+  }
+}

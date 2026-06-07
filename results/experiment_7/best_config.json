@@ -1,0 +1,19 @@
+{
+  "config": {
+    "vector_size": 200,
+    "window": 5,
+    "sg": 0,
+    "hidden_dims": [
+      512,
+      256,
+      128
+    ],
+    "dropout": 0.3,
+    "learning_rate": 0.001
+  },
+  "hamming_loss": 0.05954368391764051,
+  "f1_micro": 0.8036697247706422,
+  "f1_macro": 0.18181584346210056,
+  "precision_micro": 0.8681863230921705,
+  "recall_micro": 0.7480785653287788
+}

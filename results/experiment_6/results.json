@@ -1,0 +1,15 @@
+{
+  "experiment_id": 8,
+  "experiment_name": "BERT (evaluation only)",
+  "model": "bert-base-uncased",
+  "results": {
+    "hamming_loss": 0.07220367278797997,
+    "hamming_loss_optimal": 0.07220367278797997,
+    "f1_micro": 0.7809202195018995,
+    "f1_micro_optimal": 0.7809202195018995,
+    "f1_macro": 0.14207207207207206,
+    "precision_micro": 0.7721202003338898,
+    "recall_micro": 0.7899231426131511,
+    "optimal_threshold": 0.30000000000000004
+  }
+}
